@@ -1,0 +1,22 @@
+import base64
+
+# Function to encode text to Base64
+def encode_to_base64(text):
+    encoded_bytes = base64.b64encode(text.encode('utf-8'))  # Encoding to Base64
+    encoded_str = encoded_bytes.decode('utf-8')  # Convert bytes to string
+    return encoded_str
+
+# Your original keys
+openai_api_key = "key"
+env_for_dynaconf = "development"
+port = "3000"
+
+# Encoding the keys to Base64
+encoded_openai_api_key = encode_to_base64(openai_api_key)
+encoded_env_for_dynaconf = encode_to_base64(env_for_dynaconf)
+encoded_port = encode_to_base64(port)
+
+# Output the results in key: value format
+print(f"OPENAI_API_KEY: {encoded_openai_api_key}")
+print(f"ENV_FOR_DYNACONF: {encoded_env_for_dynaconf}")
+print(f"PORT: {encoded_port}")
